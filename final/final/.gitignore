@@ -1,0 +1,103 @@
+# Miscellaneous
+*.class
+*.log
+*.pyc
+*.swp
+.DS_Store
+.atom/
+.buildlog/
+.history
+.svn/
+migrate_working_dir/
+
+# IntelliJ related
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# The .vscode folder contains launch configuration and tasks you configure in
+# VS Code which you may wish to be included in version control, so this line
+# is commented out by default.
+#.vscode/
+
+# Flutter/Dart/Pub related
+**/doc/api/
+**/ios/Flutter/.last_build_id
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.pub-cache/
+.pub/
+/build/
+
+# Symbolication related
+app.*.symbols
+
+# Obfuscation related
+app.*.map.json
+
+# Android Studio will place build artifacts here
+/android/app/debug
+/android/app/profile
+/android/app/release
+
+config.json
+
+
+  ../../.CFUserTextEncoding
+        ../../.android/
+        ../../.bash_history
+        ../../.bash_profile
+        ../../.bash_sessions/
+        ../../.boto
+        ../../.cache/
+        ../../.cocoapods/
+        ../../.config/
+        ../../.cups/
+        ../../.dart-tool/
+        ../../.dartServer/
+        ../../.emulator_console_auth_token
+        ../../.firebaserc
+        ../../.flutter
+        ../../.flutter-devtools/
+        ../../.ftb/
+        ../../.gem/
+        ../../.gitconfig
+        ../../.gitignore
+        ../../.gitignore_global
+        ../../.gnupg/
+        ../../.gradle/
+        ../../.idlerc/
+        ../../.ipython/
+        ../../.lesshst
+        ../../.local/
+        ../../.openjfx/
+        ../../.oracle_jre_usage/
+        ../../.pgadmin/
+        ../../.pub-cache/
+        ../../.skiko/
+        ../../.ssh/
+        ../../.swiftpm/
+        ../../.viminfo
+        ../../.vscode/
+        ../../.zcompdump
+        ../../.zprofile
+        ../../.zsh_history
+        ../../.zsh_sessions/
+        ../../.zshrc
+        ../../.zshrc.backup
+        ../../ApkProjects/
+        ../../Applications/
+        ../../Desktop/
+        ../../Documents/
+        ../../Downloads/
+        ../../Library/
+        ../../Movies/
+        ../../Music/
+        ../../Pictures/
+        ../../Public/
+        ../../final copy/
+        ../../my-release-key.jks
+        ../../poll-2/
+        ../../poll/
