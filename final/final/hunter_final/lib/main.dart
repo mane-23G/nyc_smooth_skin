@@ -4,19 +4,46 @@ void main() {
   runApp(BookstoreApp());
 }
 
-class BookstoreApp extends StatelessWidget {
+class BookstoreApp extends StatefulWidget {
+  @override
+  _BookstoreAppState createState() => _BookstoreAppState();
+}
+
+
+class _BookstoreAppState extends State<BookstoreApp> {
+  bool isDarkTheme = false; // Track the current theme state
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Bookstore',
       theme: ThemeData.light(),
       darkTheme: ThemeData.dark(),
-      home: BookListPage(),
+      themeMode: isDarkTheme ? ThemeMode.dark : ThemeMode.light, // Apply theme
+      home: BookListPage(
+        isDarkTheme: isDarkTheme,
+        toggleTheme: toggleTheme,
+      ),
     );
+  }
+
+  void toggleTheme() {
+    setState(() {
+      isDarkTheme = !isDarkTheme; // Toggle theme state
+    });
   }
 }
 
 class BookListPage extends StatelessWidget {
+  final bool isDarkTheme;
+  final VoidCallback toggleTheme;
+
+   BookListPage({
+    super.key,
+    required this.isDarkTheme,
+    required this.toggleTheme,
+  });
+  
   final List<Map<String, String>> books = [
     {'title': 'Flutter Basics', 'author': 'Jane Doe'},
     {'title': 'Advanced Dart', 'author': 'John Smith'},
@@ -28,6 +55,14 @@ class BookListPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Bookstore'),
+        actions: [
+          IconButton(
+            icon: Icon(
+              isDarkTheme ? Icons.wb_sunny : Icons.nights_stay,
+            ),
+            onPressed: toggleTheme, // Toggle theme when pressed
+          ),
+        ],
       ),
       body: ListView.builder(
         itemCount: books.length,
@@ -40,7 +75,7 @@ class BookListPage extends StatelessWidget {
               ),
               elevation: 4,
               child: ListTile(
-                tileColor: Colors.yellow,
+                tileColor: Colors.purple.shade200,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(12.0),
                 ),
