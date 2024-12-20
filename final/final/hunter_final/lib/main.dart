@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'dart:convert'; 
+import 'package:http/http.dart' as http;
 
 void main() {
   runApp(BookstoreApp());
@@ -34,21 +36,69 @@ class _BookstoreAppState extends State<BookstoreApp> {
   }
 }
 
-class BookListPage extends StatelessWidget {
+class BookListPage extends StatefulWidget {
   final bool isDarkTheme;
   final VoidCallback toggleTheme;
 
-   BookListPage({
-    super.key,
+  const BookListPage({
+    Key? key,
     required this.isDarkTheme,
     required this.toggleTheme,
-  });
-  
-  final List<Map<String, String>> books = [
+  }) : super(key: key);
+
+  @override
+  _BookListPageState createState() => _BookListPageState();
+}
+
+class _BookListPageState extends State<BookListPage> {
+  List<Map<String, String>> books = [
     {'title': 'Flutter Basics', 'author': 'Jane Doe'},
     {'title': 'Advanced Dart', 'author': 'John Smith'},
     {'title': 'Mobile App Design', 'author': 'Alice Johnson'},
   ];
+
+  @override
+  void initState() {
+    super.initState();
+    fetchBooks(); // Fetch books when the widget is created
+  }
+
+  // Fetch books from the backend
+  Future<void> fetchBooks() async {
+    try {
+      final response = await http.get(Uri.parse('http://localhost:8080/getBooks')); // Replace with your backend URL
+      if (response.statusCode == 200) {
+        final List<dynamic> data = jsonDecode(response.body);
+        setState(() {
+          books = data.map((item) => {
+                'title': item['title'] as String,
+                'author': item['author'] as String,
+              }).toList();
+        });
+      } else {
+        throw Exception('Failed to fetch books');
+      }
+    } catch (e) {
+      print('Error fetching books: $e');
+    }
+  }
+
+  Future<void> addBook(String title, String author) async {
+    try {
+      final response = await http.post(
+        Uri.parse('http://localhost:8080/addBook'), // Replace with your backend URL
+        headers: {'Content-Type': 'application/json'},
+        body: jsonEncode({'title': title, 'author': author}),
+      );
+      if (response.statusCode == 200) {
+        await fetchBooks(); // Reload the book list
+      } else {
+        throw Exception('Failed to add book');
+      }
+    } catch (e) {
+      print('Error adding book: $e');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -58,9 +108,9 @@ class BookListPage extends StatelessWidget {
         actions: [
           IconButton(
             icon: Icon(
-              isDarkTheme ? Icons.wb_sunny : Icons.nights_stay,
+              widget.isDarkTheme ? Icons.wb_sunny : Icons.nights_stay,
             ),
-            onPressed: toggleTheme, // Toggle theme when pressed
+            onPressed: widget.toggleTheme, // Toggle theme when pressed
           ),
         ],
       ),
