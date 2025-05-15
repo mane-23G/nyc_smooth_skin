@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Jersey+25&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+* {
+    font-family: 'Playfair Display', serif;
+}
+
+.navbar {
+    background: #FCDFDF;
+    top: 0;
+    margin: 0;
+    padding: 0;
+    position: fixed;
+    overflow: hidden;
+    width: 100%;
+}
+
+.navbar ul {
+    background-color: #FCDFDF;
+    list-style: none;
+    /* margin: 0;
+    padding: 0;
+    overflow: hidden;
+    position: fixed;
+    top: 0; */
+    /* width: 100%; */
+}
+
+.navbar ul li {
+    display: inline;
+    /* padding: 13px; */
+    font-family: 'PlayfairDisplay', serif;
+    font-size: 18px;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    float: right;
+    padding-right: 16px;
+    /* padding: 13px; */
+    font-size: 18px;
+    font-family: 'PlayfairDisplay', serif;
+}
+
+.navbar ul li a:hover {
+    color: aqua;
+}
+
+.titleName {
+    background-color: #FCDFDF;
+    width: 100%;
+}
+
+.titleName p {
+    font-family: 'Playfair Display', serif;
+    font-size: 10vw;
+    padding: 40px 40px;
+    text-align: center;
+
+}
+
+.ourServices h1 {
+    text-align: center;
+    font-size: 4vw;
+    margin: 25px;
+}
+
+.services {
+    list-style: none;
+    display: flex;
+    flex: row;
+    justify-content: space-evenly;
+    height: 220px;
+    padding-bottom: auto;
+}
+
+.serviceCard {
+    text-align: center;
+}
+
+.serviceCard p a{
+    text-align: center;
+    margin: 15px;
+    font-size: 24px;
+    font-weight: 250;
+    color: hotpink;
+}
+
+.serviceCard div {
+    text-align: center;
+    font-size: 20px;
+    max-height: 120px;
+    min-height: 100px;
+    overflow: hidden;
+    overflow-y: auto;
+    overflow-x: scroll;
+}
+
+.serviceCard div a {
+    color: black;
+}
+
+.serviceCard div a:hover {
+    color: #cc45ae;
+}
+
+.footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: fixed;
+    background-color: #FFEEEE;
+    /* margin-bottom: 18px; */
+}
+
+.footer div{
+    padding: 12px;
+    text-align: center;
+    flex-shrink: 1;
+    font-size: 18px;
+}
+
+.footer div p {
+    font-weight: 550;
+    font-size: 20px;
+}
+
+@media only screen and (max-width:730px) {
+    .footer {
+        flex-wrap: wrap;
+    }
+
+    .footer div {
+        font-size: 12px;
+    }
+    
+    .footer div p {
+        font-size: 14px;
+    }
+
+    .services {
+        flex-wrap: wrap;
+    }
+
+
+    .serviceCard p a{
+        font-size: 18px;
+    }
+
+
+    .serviceCard div{
+        font-size: 16px;
+    }
+
+}

@@ -1,0 +1,16 @@
+[
+    {
+        "service": "Laser Hair Removal",
+        "name": "Anush",
+        "booking": "Phone or Online",
+        "link": "/laser",
+        "linktoappt": "/visitus/laser"
+    },
+    {
+        "service": "Manicure and Pedicure",
+        "name": "Natasha",
+        "booking": "Phone",
+        "link": "/nails",
+        "linktoappt": "/visitus/nails"
+    }
+]
